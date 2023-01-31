@@ -1,7 +1,5 @@
 <template>
   <div>
-    Welcome
-    <br>
-    <DarkToggle />
+    <NuxtWelcome />
   </div>
 </template>
