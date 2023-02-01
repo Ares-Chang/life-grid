@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const age = ref('')
+const { config } = useUserStore()
 const type = ref('text')
 </script>
 
@@ -9,7 +9,7 @@ const type = ref('text')
       Settings
     </h2>
     <input
-      v-model="age"
+      v-model="config.age"
       placeholder="Your date of birth?"
       :type="type" autocomplete="off"
       p="x-4 y-2" my-6 w-full h-40px
@@ -17,7 +17,7 @@ const type = ref('text')
       border="~ rd gray-200 dark:gray-700"
       outline-none
       @focus="type = 'date'"
-      @blur="!age && (type = 'text')"
+      @blur="!config.age && (type = 'text')"
     >
   </div>
 </template>
