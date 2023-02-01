@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { config } = useUserStore()
+const { config } = $(useUserStore())
 const type = ref('text')
 
 function submit() {
