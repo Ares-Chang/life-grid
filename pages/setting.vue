@@ -1,10 +1,18 @@
 <script setup lang="ts">
-const { config } = $(useUserStore())
+const { config, isAuth } = $(useUserStore())
 const type = ref('text')
 
+let errorAnimation = $ref('')
+
 function submit() {
-  if (!config.age)
-    return alert('请填写基础数据')
+  errorAnimation = '' // 重置动画
+  if (!isAuth) {
+    // 定时器队列触发，需要重置动画
+    return setTimeout(() => {
+      errorAnimation = 'border-red! animate-bounce-alt animate-count-2 animate-duration-1s'
+    }, 0)
+  }
+
   navigateTo('/')
 }
 </script>
@@ -22,6 +30,7 @@ function submit() {
       text-center bg-transparent
       border="~ rd gray-200 dark:gray-700"
       outline-none
+      :class="errorAnimation"
       @focus="type = 'date'"
       @blur="!config.age && (type = 'text')"
     >
