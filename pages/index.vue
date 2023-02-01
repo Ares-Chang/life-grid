@@ -7,7 +7,7 @@ const num = 900
     <div
       v-for="item in num" :key="item"
       w-6 h-6
-      bg-pink
+      bg="gray"
     />
   </div>
 </template>
