@@ -1,6 +1,12 @@
 <script setup lang="ts">
 const { config } = useUserStore()
 const type = ref('text')
+
+function submit() {
+  if (!config.age)
+    return alert('请填写基础数据')
+  navigateTo('/')
+}
 </script>
 
 <template>
@@ -19,5 +25,8 @@ const type = ref('text')
       @focus="type = 'date'"
       @blur="!config.age && (type = 'text')"
     >
+    <button btn w-full p-2 @click="submit">
+      Submit
+    </button>
   </div>
 </template>
