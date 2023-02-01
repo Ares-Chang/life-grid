@@ -2,16 +2,36 @@
 const { config, isAuth } = $(useUserStore())
 const type = ref('text')
 
-let errorAnimation = $ref('')
-
-function submit() {
-  errorAnimation = '' // 重置动画
+let errorAnimate = $ref('')
+/**
+ * 获取校验结果并重置动画
+ * @returns 校验是否通过
+ */
+function resetAnimate() {
+  errorAnimate = '' // 重置动画
   if (!isAuth) {
     // 定时器队列触发，需要重置动画
-    return setTimeout(() => {
-      errorAnimation = 'border-red! animate-bounce-alt animate-count-2 animate-duration-1s'
+    setTimeout(() => {
+      errorAnimate = 'border-red! animate-bounce-alt animate-count-2 animate-duration-1s'
     }, 0)
   }
+  return isAuth
+}
+
+watchEffect(() => {
+  /**
+   * 监听校验结果，校验通过，重置动画
+   */
+  if (isAuth)
+    resetAnimate()
+})
+
+/**
+ * 进行校验并跳转首页
+ */
+function submit() {
+  if (!resetAnimate())
+    return
 
   navigateTo('/')
 }
@@ -30,7 +50,7 @@ function submit() {
       text-center bg-transparent
       border="~ rd gray-200 dark:gray-700"
       outline-none
-      :class="errorAnimation"
+      :class="errorAnimate"
       @focus="type = 'date'"
       @blur="!config.age && (type = 'text')"
     >
