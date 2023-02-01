@@ -2,7 +2,7 @@ export default defineNuxtRouteMiddleware(() => {
   /**
    * 检查是否设置基础信息
    */
-  const { config } = useUserStore()
-  if (!config.age)
+  const { isAuth } = useUserStore()
+  if (!isAuth)
     return navigateTo('/setting')
 })

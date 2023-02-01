@@ -5,8 +5,14 @@ export const useUserStore = defineStore('user', () => {
     age: '',
   })
 
+  /**
+   * 基础信息是否完善，是否可进入
+   */
+  const isAuth = computed(() => !!config.age)
+
   return {
     config,
+    isAuth,
   }
 })
 
