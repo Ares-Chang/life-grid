@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import type { Tips } from '~/types'
+import type { GridProps } from '~/types'
 
 const { list } = defineProps<{
-  list: Tips[]
+  list: GridProps[]
 }>()
 </script>
 

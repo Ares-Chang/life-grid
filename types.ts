@@ -1,4 +1,4 @@
-export interface Tips {
+export interface GridProps {
   color: string
   tip: string
 }

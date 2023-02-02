@@ -1,4 +1,4 @@
-import type { Tips } from '~/types'
+import type { GridProps } from '~/types'
 export class InitGrid {
   age = '' // 出生日期
   tipList = [
@@ -30,7 +30,7 @@ export class InitGrid {
       color: 'bg-gray',
       tip: '除了以上之外，你剩下的所有日子',
     },
-  ] as Tips[]
+  ] as GridProps[]
 
   constructor(age: string) {
     this.age = age
