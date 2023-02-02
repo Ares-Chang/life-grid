@@ -6,13 +6,15 @@ export class InitGrid {
   }
 
   get formerly() {
-    return this.getTimeDiff(this.age)
+    const _ = $computed(() => this.getTimeDiff(this.age))
+    return _
   }
 
   get future() {
     const arr = this.age.split('-')
     arr[0] = String(+arr[0] + 80)
-    return this.getTimeDiff(arr.join('-'))
+    const _ = $computed(() => this.getTimeDiff(arr.join('-')))
+    return _
   }
 
   /**
