@@ -25,7 +25,7 @@ export class InitGrid {
     },
     {
       color: 'bg-blue-600/80',
-      tip: '如果你每个月能看望父母一天，在他们 80 岁前，这是你的余生里还能陪伴他们的时光',
+      tip: '如果你每个月能看望父母一天，在他们 77 岁前，这是你的余生里还能陪伴他们的时光',
     },
     {
       color: 'bg-gray',
@@ -50,7 +50,7 @@ export class InitGrid {
    */
   get future() {
     const arr = this.age.split('-')
-    arr[0] = String(+arr[0] + 80)
+    arr[0] = String(+arr[0] + 77)
     const _ = $computed(() => this.getTimeDiff(arr.join('-')))
     return _
   }
