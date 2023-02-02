@@ -27,6 +27,7 @@ const { list } = defineProps<{
       注: 据 2021 年统计，中国人人均寿命 77 岁，参考自
       <NuxtLink
         to="https://baike.baidu.com/item/%E4%BA%BA%E5%8F%A3%E5%B9%B3%E5%9D%87%E9%A2%84%E6%9C%9F%E5%AF%BF%E5%91%BD/7626803"
+        target="_blank"
         color="blue hover:emerald"
       >
         百度百科
