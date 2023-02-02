@@ -1,7 +1,11 @@
 // @unocss-include
-import type { GridProps } from '~/types'
+import type { Config, GridProps } from '~/types'
 export class InitGrid {
-  birthday = '' // 出生日期
+  config = {
+    birthday: '', // 出生日期
+    lifetime: 77, // 期待寿命
+  } as Config
+
   tipList = [
     {
       color: 'bg-green',
@@ -33,15 +37,15 @@ export class InitGrid {
     },
   ] as GridProps[]
 
-  constructor(birthday: string) {
-    this.birthday = birthday
+  constructor(config: Config) {
+    this.config = config
   }
 
   /**
    * 距离现在已经过去的时间
    */
   get formerly() {
-    const _ = $computed(() => this.getTimeDiff(this.birthday))
+    const _ = $computed(() => this.getTimeDiff(this.config.birthday))
     return _
   }
 
@@ -49,8 +53,8 @@ export class InitGrid {
    * 现在距离未来还剩时间
    */
   get future() {
-    const arr = this.birthday.split('-')
-    arr[0] = String(+arr[0] + 77)
+    const arr = this.config.birthday.split('-')
+    arr[0] = String(+arr[0] + this.config.lifetime)
     const _ = $computed(() => this.getTimeDiff(arr.join('-')))
     return _
   }

@@ -4,7 +4,7 @@ definePageMeta({
 })
 
 const { config } = $(useUserStore())
-const init = new InitGrid(config.birthday)
+const init = new InitGrid(config)
 
 const num = 100
 </script>

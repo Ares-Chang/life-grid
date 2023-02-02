@@ -1,8 +1,10 @@
 import { acceptHMRUpdate, defineStore } from 'pinia'
+import type { Config } from '~/types'
 
 export const useUserStore = defineStore('user', () => {
-  const config = reactive({
-    birthday: '',
+  const config = reactive<Config>({
+    birthday: '', // 出生日期
+    lifetime: 77, // 期待寿命
   })
 
   /**
