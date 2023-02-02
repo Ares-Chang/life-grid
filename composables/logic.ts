@@ -1,15 +1,21 @@
 export class InitGrid {
-  age = ''
+  age = '' // 出生日期
 
   constructor(age: string) {
     this.age = age
   }
 
+  /**
+   * 距离现在已经过去的时间
+   */
   get formerly() {
     const _ = $computed(() => this.getTimeDiff(this.age))
     return _
   }
 
+  /**
+   * 现在距离未来还剩时间
+   */
   get future() {
     const arr = this.age.split('-')
     arr[0] = String(+arr[0] + 80)
