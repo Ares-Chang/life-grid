@@ -1,3 +1,4 @@
+// @unocss-include
 import type { GridProps } from '~/types'
 export class InitGrid {
   age = '' // 出生日期
