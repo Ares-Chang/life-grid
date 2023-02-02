@@ -30,7 +30,7 @@ export class InitGrid {
    */
   getTimeDiff(time: string) {
     const now = $(useNow())
-    const date = new Date(time)
+    const date = new Date(`${time} 00:00:00`)
 
     const diff = now.getTime() - date.getTime()
 
