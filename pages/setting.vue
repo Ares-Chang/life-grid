@@ -46,11 +46,7 @@ function submit() {
       v-model="config.birthday"
       placeholder="Your date of birth?"
       :type="type" autocomplete="off"
-      p="x-4 y-2" my-6 w-full h-40px
-      text-center bg-transparent
-      border="~ rd gray-200 dark:gray-700"
-      outline-none
-      :class="errorAnimate"
+      :class="`input ${errorAnimate}`"
       @focus="type = 'date'"
       @blur="!config.birthday && (type = 'text')"
     >
@@ -58,13 +54,18 @@ function submit() {
       v-model="config.lifetime" disabled
       placeholder="Your life expectancy?"
       type="text" autocomplete="off"
-      p="x-4 y-2" my-6 w-full h-40px
-      text-center bg-transparent
-      border="~ rd gray-200 dark:gray-700"
-      outline-none
+      class="input"
     >
     <button btn w-full p-2 @click="submit">
       Submit
     </button>
   </div>
 </template>
+
+<style>
+.input {
+  @apply px-4 py-2 my-6 block
+  w-full h-40px text-center bg-transparent
+  border rd border-gray-200 dark:border-gray-700 outline-none;
+}
+</style>
