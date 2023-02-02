@@ -3,6 +3,11 @@ definePageMeta({
   middleware: 'auth',
 })
 
+const { config } = $(useUserStore())
+const init = new InitGrid(config.age)
+
+const formerly = computed(() => init.formerly)
+
 const num = 100
 
 const tipList = [
@@ -38,6 +43,14 @@ const tipList = [
 </script>
 
 <template>
+  <div>
+    <div>年: {{ formerly.year }}</div>
+    <div>月: {{ formerly.month }}</div>
+    <div>日: {{ formerly.day }}</div>
+    <div>时: {{ formerly.hour }}</div>
+    <div>分: {{ formerly.minute }}</div>
+    <div>秒: {{ formerly.second }}</div>
+  </div>
   <div max-w-1200px m-auto flex="~ wrap" gap-2>
     <div
       v-for="item in num" :key="item"
