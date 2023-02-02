@@ -43,7 +43,7 @@ function submit() {
       Settings
     </h2>
     <input
-      v-model="config.age"
+      v-model="config.birthday"
       placeholder="Your date of birth?"
       :type="type" autocomplete="off"
       p="x-4 y-2" my-6 w-full h-40px
@@ -52,7 +52,7 @@ function submit() {
       outline-none
       :class="errorAnimate"
       @focus="type = 'date'"
-      @blur="!config.age && (type = 'text')"
+      @blur="!config.birthday && (type = 'text')"
     >
     <button btn w-full p-2 @click="submit">
       Submit

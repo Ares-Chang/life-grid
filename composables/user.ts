@@ -2,13 +2,13 @@ import { acceptHMRUpdate, defineStore } from 'pinia'
 
 export const useUserStore = defineStore('user', () => {
   const config = reactive({
-    age: '',
+    birthday: '',
   })
 
   /**
    * 基础信息是否完善，是否可进入
    */
-  const isAuth = computed(() => !!config.age)
+  const isAuth = computed(() => !!config.birthday)
 
   return {
     config,
