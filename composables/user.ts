@@ -1,8 +1,12 @@
-import { acceptHMRUpdate, defineStore } from 'pinia'
+import { acceptHMRUpdate, defineStore, skipHydrate } from 'pinia'
+import { useStorage } from '@vueuse/core'
 import type { Config } from '~/types'
 
 export const useUserStore = defineStore('user', () => {
-  const config = reactive<Config>({
+  /**
+   * SSR 持久化可参考 {@link https://pinia.vuejs.org/zh/cookbook/composables.html#ssr}
+   */
+  const config = useStorage<Config>('life-grid-config', {
     birthday: '', // 出生日期
     lifetime: 77, // 期待寿命
   })
@@ -10,10 +14,10 @@ export const useUserStore = defineStore('user', () => {
   /**
    * 基础信息是否完善，是否可进入
    */
-  const isAuth = computed(() => !!config.birthday)
+  const isAuth = computed(() => !!config.value.birthday)
 
   return {
-    config,
+    config: skipHydrate(config), // 暂停读取
     isAuth,
   }
 })
