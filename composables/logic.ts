@@ -1,5 +1,5 @@
 // @unocss-include
-import type { Config, GridProps } from '~/types'
+import type { Config, GridProps, TimeDiff } from '~/types'
 export class InitGrid {
   config = {
     birthday: '', // 出生日期
@@ -64,7 +64,7 @@ export class InitGrid {
    * @param time 对比时间
    * @returns 相差时间
    */
-  getTimeDiff(time: string) {
+  getTimeDiff(time: string): TimeDiff {
     const now = $(useNow())
     const date = new Date(`${time} 00:00:00`)
 
