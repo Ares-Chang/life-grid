@@ -35,13 +35,10 @@ const list = [
 </script>
 
 <template>
-  <div p-8 my-8 border rd-2 relative>
-    <div
-      p="x-4 y-2" bg-blue rd-2
-      absolute top--4
-    >
+  <Card>
+    <template #title>
       {{ title }}
-    </div>
+    </template>
 
     <div grid="~ cols-3" px-8 text-center>
       <div v-for="(item, index) in list" :key="index" mt-2>
@@ -49,5 +46,5 @@ const list = [
         <span ml-1 color-gray>{{ item.value }}</span>
       </div>
     </div>
-  </div>
+  </Card>
 </template>

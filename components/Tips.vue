@@ -9,13 +9,10 @@ const { config } = $(useUserStore())
 </script>
 
 <template>
-  <div p-8 my-8 border rd-2 relative>
-    <div
-      p="x-4 y-2" bg-blue rd-2
-      absolute top--4
-    >
+  <Card>
+    <template #title>
       Tips
-    </div>
+    </template>
 
     <div>
       <div v-for="(item, index) in list" :key="index">
@@ -35,5 +32,5 @@ const { config } = $(useUserStore())
         百度百科
       </NuxtLink>
     </div>
-  </div>
+  </Card>
 </template>
