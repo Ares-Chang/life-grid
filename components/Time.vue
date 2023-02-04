@@ -40,7 +40,7 @@ const list = [
       {{ title }}
     </template>
 
-    <div grid="~ cols-3" px-8 text-center>
+    <div grid="~ md:cols-3 cols-2" px-8 text-center>
       <div v-for="(item, index) in list" :key="index" mt-2>
         <span>{{ data[item.key] }}</span>
         <span ml-1 color-gray>{{ item.value }}</span>
