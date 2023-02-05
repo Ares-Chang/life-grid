@@ -1,7 +1,6 @@
 <script setup lang="ts">
-definePageMeta({
-  middleware: 'auth',
-})
+// 鉴权
+onMounted(() => useAuth())
 
 const { config } = $(useUserStore())
 const init = new InitGrid(config)
