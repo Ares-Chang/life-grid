@@ -33,6 +33,9 @@ function submit() {
   if (!resetAnimate())
     return
 
+  const isAuth = useCookie('isAuth', { maxAge: 60 * 60 * 24 * 14 })
+  isAuth.value = 'true'
+
   navigateTo('/')
 }
 </script>
