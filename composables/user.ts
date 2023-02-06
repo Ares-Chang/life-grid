@@ -12,13 +12,12 @@ export const useUserStore = defineStore('user', () => {
   }))
 
   /**
-   * 基础信息是否完善，是否可进入
+   * 基础信息是否完善
    */
-  const isAuth = computed(() => !!config.birthday)
-
+  const isVerify = computed(() => !!config.birthday)
   return {
     config: skipHydrate($$(config)), // 暂停读取
-    isAuth,
+    isVerify,
   }
 })
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const { config, isAuth } = $(useUserStore())
+const { config, isVerify } = $(useUserStore())
 const type = ref('text')
 
 let errorAnimate = $ref('')
@@ -9,20 +9,20 @@ let errorAnimate = $ref('')
  */
 function resetAnimate() {
   errorAnimate = '' // 重置动画
-  if (!isAuth) {
+  if (!isVerify) {
     // 定时器队列触发，需要重置动画
     setTimeout(() => {
       errorAnimate = 'border-red! animate-bounce-alt animate-count-2 animate-duration-1s'
     }, 0)
   }
-  return isAuth
+  return isVerify
 }
 
 watchEffect(() => {
   /**
    * 监听校验结果，校验通过，重置动画
    */
-  if (isAuth)
+  if (isVerify)
     resetAnimate()
 })
 
