@@ -46,5 +46,6 @@ const list = [
         <span ml-1 color-gray>{{ item.value }}</span>
       </div>
     </div>
+    <slot />
   </Card>
 </template>
