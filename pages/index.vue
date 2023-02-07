@@ -5,8 +5,6 @@ definePageMeta({
 
 const { config } = $(useUserStore())
 const init = new InitGrid(config)
-
-const num = 100
 </script>
 
 <template>
@@ -15,7 +13,7 @@ const num = 100
 
   <div max-w-1200px m-auto flex="~ wrap" gap-2>
     <div
-      v-for="item in num" :key="item"
+      v-for="item in init.allTime.month" :key="item"
       w-6 h-6
       bg="gray"
     />

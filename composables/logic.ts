@@ -60,12 +60,23 @@ export class InitGrid {
   }
 
   /**
+   * 获取出生到死亡所有时间差
+   */
+  get allTime() {
+    const { birthday, lifetime } = this.config
+    const arr = this.config.birthday.split('-')
+    arr[0] = String(+arr[0] + lifetime)
+    return this.getTimeDiff(arr.join('-'), birthday)
+  }
+
+  /**
    * 获取距当前时间相差时间
    * @param time 对比时间
+   * @param targe 目标时间
    * @returns 相差时间
    */
-  getTimeDiff(time: string): TimeDiff {
-    const now = $(useNow())
+  getTimeDiff(time: string, targe?: string): TimeDiff {
+    const now = $(targe ? ref(new Date(`${targe} 00:00:00`)) : useNow())
     const date = new Date(`${time} 00:00:00`)
 
     const diff = now.getTime() - date.getTime()
