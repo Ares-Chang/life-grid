@@ -12,11 +12,13 @@ const init = new InitGrid(config)
   <Time title="剩下的时间" :data="init.future" />
 
   <div max-w-1200px m-auto flex="~ wrap" gap-2>
-    <div
-      v-for="item in init.allTime.month" :key="item"
-      w-6 h-6
-      bg="gray"
-    />
+    <div v-for="(group, index) in init.renderList" :key="index" flex="~ wrap" gap-2>
+      <div
+        v-for="(_, _index) in group" :key="_index"
+        w-6 h-6
+        :class="init.tipList[index].color"
+      />
+    </div>
   </div>
   <Tips :list="init.tipList" />
 </template>

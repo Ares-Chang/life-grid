@@ -60,13 +60,29 @@ export class InitGrid {
   }
 
   /**
-   * 获取出生到死亡所有时间差
+   * 获取人生小格渲染数据
    */
-  get allTime() {
-    const { birthday, lifetime } = this.config
+  get renderList() {
+    return this.getRenderData()
+  }
+
+  /**
+   * 获取渲染数据
+   */
+  getRenderData() {
+    const list = []
+    list[0] = this.formerly.month
+    list[1] = Math.round(8 * this.future.day / 24 / 30)
+
     const arr = this.config.birthday.split('-')
-    arr[0] = String(+arr[0] + lifetime)
-    return this.getTimeDiff(arr.join('-'), birthday)
+    arr[0] = String(+arr[0] + 65)
+    list[2] = Math.round(8 * this.getTimeDiff(arr.join('-')).day / 24 / 30)
+
+    list[3] = 1
+    list[4] = 1
+    list[5] = 77 * 1
+    list[6] = (this.formerly.month + this.future.month) - list.reduce((a, b) => a + b)
+    return list
   }
 
   /**
