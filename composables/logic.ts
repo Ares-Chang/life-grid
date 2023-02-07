@@ -1,12 +1,12 @@
 // @unocss-include
 import type { Config, GridProps, TimeDiff } from '~/types'
 export class InitGrid {
-  config = {
+  config: Config = {
     birthday: '', // 出生日期
     lifetime: 77, // 期待寿命
-  } as Config
+  }
 
-  tipList = [
+  tipList = reactive<GridProps[]>([
     {
       color: 'bg-green',
       tip: '你已经走过的生命',
@@ -35,7 +35,7 @@ export class InitGrid {
       color: 'bg-gray',
       tip: '除了以上之外，你剩下的所有日子',
     },
-  ] as GridProps[]
+  ])
 
   constructor(config: Config) {
     this.config = config
