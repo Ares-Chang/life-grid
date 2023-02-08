@@ -79,7 +79,12 @@ export class InitGrid {
     list[2] = Math.round(8 * this.getTimeDiff(_2.join('-'), this.config.birthday).day / 24 / 30)
 
     list[3] = 1
-    list[4] = 1
+
+    const _4 = this.config.birthday.split('-')
+    list[4] = Math.round(5 * this.getTimeDiff(
+      `${+_4[0] + 28}-${_4[1]}-${_4[1]}`, `${+_4[0] + 28 + 18}-${_4[1]}-${_4[1]}`,
+    ).day / 24 / 30)
+
     list[5] = 77 * 1
     list[6] = (this.formerly.month + this.future.month) - list.reduce((a, b) => a + b)
     return list
