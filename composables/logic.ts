@@ -74,9 +74,9 @@ export class InitGrid {
     list[0] = this.formerly.month
     list[1] = Math.round(8 * this.future.day / 24 / 30)
 
-    const arr = this.config.birthday.split('-')
-    arr[0] = String(+arr[0] + 65)
-    list[2] = Math.round(8 * this.getTimeDiff(arr.join('-')).day / 24 / 30)
+    const _2 = this.config.birthday.split('-')
+    _2[0] = String(+_2[0] + 1)
+    list[2] = Math.round(8 * this.getTimeDiff(_2.join('-'), this.config.birthday).day / 24 / 30)
 
     list[3] = 1
     list[4] = 1
