@@ -17,7 +17,7 @@ export class InitGrid {
     },
     {
       color: 'bg-yellow-900',
-      tip: '如果你 65 岁退休，退休前平均每天工作 8 小时，这是你余下生命里工作占用的时间',
+      tip: '如果你 23 岁工作， 65 岁退休，退休前平均每天工作 8 小时，这是你余下生命里工作占用的时间',
     },
     {
       color: 'bg-yellow',
@@ -75,8 +75,9 @@ export class InitGrid {
     list[1] = Math.round(8 * this.future.day / 24 / 30)
 
     const _2 = this.config.birthday.split('-')
-    _2[0] = String(+_2[0] + 1)
-    list[2] = Math.round(8 * this.getTimeDiff(_2.join('-'), this.config.birthday).day / 24 / 30)
+    list[2] = Math.round(8 * this.getTimeDiff(
+      `${+_2[0] + 65}-${_2[1]}-${_2[2]}`, `${+_2[0] + 23}-${_2[1]}-${_2[2]}`,
+    ).day / 24 / 30)
 
     list[3] = 1
 
