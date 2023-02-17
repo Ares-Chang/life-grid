@@ -1,4 +1,4 @@
-# life-grid (人生小格)
+# life-grid (人生小格) [![Netlify Status](https://api.netlify.com/api/v1/badges/8b30ab3a-23f9-4564-bc27-6dbddb75b567/deploy-status)](https://app.netlify.com/sites/hilarious-smakager-b2b0e0/deploys)
 
 时间一天一天的过，日历一页一页的翻。
 
